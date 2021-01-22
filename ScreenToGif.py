@@ -2,7 +2,7 @@ import pyautogui
 import keyboard
 import imageio
 
-STOPP=False
+STOP=False
 Buff = []
 while True:
     if keyboard.is_pressed('s'):
@@ -10,11 +10,11 @@ while True:
         while True:
             im = pyautogui.screenshot()
             Buff.append(im)
-            if keyboard.is_pressed('x'):
+            if keyboard.is_pressed('q'):
                 print("stopping...")
                 STOP=True
                 break
-    if STOPP:
+    if STOP:
         break
 
 gif = imageio.mimsave('screen.gif', Buff, 'GIF', duration=0.3)
