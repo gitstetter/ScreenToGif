@@ -1,23 +1,20 @@
-from PIL import ImageGrab
-import numpy as np
-import cv2 as cv
-import time, pyautogui, keyboard, imageio
- 
-stop=False
-buff = []
+import pyautogui
+import keyboard
+import imageio
+
+STOPP=False
+Buff = []
 while True:
     if keyboard.is_pressed('s'):
         print('starting')
         while True:
             im = pyautogui.screenshot()
-            img = cv.cvtColor(np.array(im), cv.COLOR_RGB2BGR)
-            buff.append(img)
-            time.sleep(0.1)
+            Buff.append(im)
             if keyboard.is_pressed('x'):
                 print("stopping...")
-                stop=True
+                STOP=True
                 break
-    if stop:
+    if STOPP:
         break
-    
-gif = imageio.mimsave('screen.gif', buff, 'GIF', duration=0.3)
+
+gif = imageio.mimsave('screen.gif', Buff, 'GIF', duration=0.3)
