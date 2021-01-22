@@ -11,15 +11,13 @@ import time, pyautogui,keyboard
  
 if keyboard.is_pressed('s'):
     buff = []
-    i=0
-    while i<10:
+    while True:
         im = pyautogui.screenshot()
         img = cv.cvtColor(np.array(im), cv.COLOR_RGB2BGR)
         buff.append(img)
         time.sleep(0.1)
-        #if keyboard.is_pressed('x'):
-        #    break
-        i+=1
+        if keyboard.is_pressed('x'):
+            break
         
     gif = imageio.mimsave('screen.gif', buff, 'GIF', duration=0.1)
 
