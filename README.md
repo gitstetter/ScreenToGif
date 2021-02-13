@@ -8,7 +8,7 @@ It's not rocket science, but hey "a gif says more than million words".
 
 Instructions:
 
-1) Press "F1" to crop you screen by holding your left mouse key and drdrawing a rectangle (Optional)
+1) Press "F1" to crop you screen by holding your left mouse key and drawing a rectangle (Optional)
 
 2) Press "F2" to start recording
 
