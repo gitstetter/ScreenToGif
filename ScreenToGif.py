@@ -18,9 +18,10 @@ def on_click(x, y, button, pressed):
 CROPPED=False
 STOP=False
 Buff = []
+
 while True:
     if keyboard.is_pressed('f1'):
-        print('cropping enabled')
+        print('Cropping enabled')
         with Listener(on_click=on_click) as listener:
             listener.join()
         CROPPED=True
@@ -39,8 +40,6 @@ while True:
                 STOP=True
                 break
     if STOP:
-        #print(x_start,y_start, x_end-x_start, y_end-y_start)
-
         break
 
-gif = imageio.mimsave('screen.gif', Buff, 'GIF', duration=0.3)
+gif = imageio.mimsave('screen.gif', Buff, 'GIF', duration=0.2)
