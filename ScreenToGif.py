@@ -1,7 +1,11 @@
-import pyautogui
-import keyboard
+import logging
+
 import imageio
+import keyboard
+import pyautogui
 from pynput.mouse import Listener
+
+logging.basicConfig(format='%(asctime)s | %(levelname)s | Line: %(lineno)s | %(message)s',level=logging.INFO)
 
 def on_click(x, y, button, pressed):
     if pressed:
@@ -21,22 +25,22 @@ Buff = []
 
 while True:
     if keyboard.is_pressed('f1'):
-        print('Cropping enabled')
+        logging.info('Cropping enabled')
         with Listener(on_click=on_click) as listener:
             listener.join()
         CROPPED=True
-        print('Cropped Area is:')
-        print(x_start,y_start, x_end, y_end)
+        logging.info(f'Cropped Area is: {x_start},{y_start}, {x_end}, {y_end}')
+
 
     if keyboard.is_pressed('f2'):
-        print('Start recording...')
+        logging.info('Start recording...')
         while True:           
             im = pyautogui.screenshot()
             if CROPPED:
                 im =im.crop(box=(x_start*2,y_start*2, x_end*2, y_end*2))              
             Buff.append(im)
             if keyboard.is_pressed('f3'):
-                print("Stopping...")
+                logging.info("Stopping...")
                 STOP=True
                 break
     if STOP:
